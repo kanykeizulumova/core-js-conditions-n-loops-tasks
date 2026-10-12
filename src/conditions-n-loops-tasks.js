@@ -21,8 +21,11 @@
  *  0  => true
  *  -5 => false
  */
-function isPositive(/* number */) {
-  throw new Error('Not implemented');
+function isPositive(number) {
+  if (number >= 0) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -38,8 +41,14 @@ function isPositive(/* number */) {
  *  -5, 0, 5      => 5
  *  -0.1, 0, 0.2  => 0.2
  */
-function getMaxNumber(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getMaxNumber(a, b, c) {
+  if (a > b && a > c) {
+    return a;
+  }
+  if (b > a && b > c) {
+    return b;
+  }
+  return c;
 }
 
 /**
@@ -83,8 +92,14 @@ function canQueenCaptureKing(/* queen, king */) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  if (a <= 0 || b <= 0 || c <= 0) {
+    return false;
+  }
+  if (a + b <= c || a + c <= b || b + c <= a) {
+    return false;
+  }
+  return a === b || b === c || a === c;
 }
 
 /**
@@ -101,8 +116,46 @@ function isIsoscelesTriangle(/* a, b, c */) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  if (num === 1) return 'I';
+  if (num === 2) return 'II';
+  if (num === 3) return 'III';
+  if (num === 4) return 'IV';
+  if (num === 5) return 'V';
+  if (num === 6) return 'VI';
+  if (num === 7) return 'VII';
+  if (num === 8) return 'VIII';
+  if (num === 9) return 'IX';
+  if (num === 10) return 'X';
+  if (num === 11) return 'XI';
+  if (num === 12) return 'XII';
+  if (num === 13) return 'XIII';
+  if (num === 14) return 'XIV';
+  if (num === 15) return 'XV';
+  if (num === 16) return 'XVI';
+  if (num === 17) return 'XVII';
+  if (num === 18) return 'XVIII';
+  if (num === 19) return 'XIX';
+  if (num === 20) return 'XX';
+  if (num === 21) return 'XXI';
+  if (num === 22) return 'XXII';
+  if (num === 23) return 'XXIII';
+  if (num === 24) return 'XXIV';
+  if (num === 25) return 'XXV';
+  if (num === 26) return 'XXVI';
+  if (num === 27) return 'XXVII';
+  if (num === 28) return 'XXVIII';
+  if (num === 29) return 'XXIX';
+  if (num === 30) return 'XXX';
+  if (num === 31) return 'XXXI';
+  if (num === 32) return 'XXXII';
+  if (num === 33) return 'XXXIII';
+  if (num === 34) return 'XXXIV';
+  if (num === 35) return 'XXXV';
+  if (num === 36) return 'XXXVI';
+  if (num === 37) return 'XXXVII';
+  if (num === 38) return 'XXXVIII';
+  return 'XXXIX';
 }
 
 /**
