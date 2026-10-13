@@ -268,8 +268,24 @@ function isContainNumber(num, digit) {
  *  [2, 3, 9, 5] => 2       => 2 + 3 === 5 then balance element is 9 and its index = 2
  *  [1, 2, 3, 4, 5] => -1   => no balance element
  */
-function getBalanceIndex(/* arr */) {
-  throw new Error('Not implemented');
+function getBalanceIndex(arr) {
+  let balance = 0;
+  let sumLeft = 0;
+  let sumRight = 0;
+  for (let index = 0; index < arr.length; index += 1) {
+    sumLeft = 0;
+    for (let i = 0; i < index; i += 1) {
+      sumLeft += arr[i];
+    }
+    sumRight = 0;
+    for (let i = index + 1; i < arr.length; i += 1) {
+      sumRight += arr[i];
+    }
+    if (sumLeft === sumRight) {
+      balance = index;
+    }
+  }
+  return balance || -1;
 }
 
 /**
@@ -330,8 +346,35 @@ function rotateMatrix(/* matrix */) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  const arrayRef = arr;
+
+  function quickSort(start, end) {
+    if (start >= end) return;
+
+    const pivot = arrayRef[end];
+    let pivotIndex = start;
+
+    for (let i = start; i < end; i += 1) {
+      if (arrayRef[i] < pivot) {
+        const temp = arrayRef[i];
+        arrayRef[i] = arrayRef[pivotIndex];
+        arrayRef[pivotIndex] = temp;
+
+        pivotIndex += 1;
+      }
+    }
+
+    const temp = arrayRef[pivotIndex];
+    arrayRef[pivotIndex] = arrayRef[end];
+    arrayRef[end] = temp;
+    quickSort(start, pivotIndex - 1);
+    quickSort(pivotIndex + 1, end);
+  }
+
+  quickSort(0, arrayRef.length - 1);
+
+  return arrayRef;
 }
 
 /**
